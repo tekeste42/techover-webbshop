@@ -3,20 +3,32 @@ import { Typography, Container, Grid, Button } from '@mui/material';
 import ProductCard from '../../ProductCard/ProductCard.js';
 import useStyles from './styles';
 import { connect } from 'react-redux';
+import { decrementProduct, incrementProduct } from '../../../reduxStore/actions/index';
 
-const Products = ({ products, error, loading }) => {
+const Products = ({ products, error, loading, incrementProduct, decrementProduct, orders }) => {
 	const classes = useStyles();
-	console.log({ products });
-	const handleIncrement = (params) => {};
-	const handleDecrement = (params) => {};
+
+	const handleIncrement = (product) => {
+		incrementProduct(product);
+	};
+
+	const handleDecrement = (product) => {
+		decrementProduct(product);
+	};
+
+	const showSkeletonLoaders = () => [1, 2, 3, 4, 5].map((d) => <ProductCard key={d} loading={true} />);
 
 	const renderProductCards = () => {
-		if (loading) return [1, 2, 3, 4, 5].map((d) => <ProductCard key={d} loading={true} />);
+		if (loading) return showSkeletonLoaders();
 
 		return products.map((prod, i) => {
+			const order = orders.find((orders) => orders.product.itemid === prod.itemid);
+			const quantity = order ? order.quantity : null;
+
 			return (
 				<ProductCard
 					{...prod}
+					quantity={quantity}
 					loading={false}
 					key={i}
 					onIncrement={() => handleIncrement(prod)}
@@ -52,15 +64,20 @@ const Products = ({ products, error, loading }) => {
 
 const mapStateToProps = (state) => {
 	const { items, loading, error } = state.products;
+	const { orders } = state.cart;
 	return {
 		products: items,
+		orders,
 		error,
 		loading
 	};
 };
 
 const mapDIspatchToProps = (dispatch) => {
-	return {};
+	return {
+		incrementProduct: (data) => dispatch(incrementProduct(data)),
+		decrementProduct: (data) => dispatch(decrementProduct(data))
+	};
 };
 
 export default connect(mapStateToProps, mapDIspatchToProps)(Products);

@@ -18,14 +18,31 @@ export const fetchProductsSuccess = (data) => {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-const fakeProduct = {
+const product1 = {
 	imgSrc: 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg',
 	title: 'Pizza',
 	text: 'New york style pizza',
-	price: '99'
+	price: '99',
+	itemid: 1
 };
 
-const fakeArrayOfProducts = [fakeProduct, fakeProduct, fakeProduct, fakeProduct];
+const product2 = {
+	imgSrc: 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg',
+	title: 'Hamburger',
+	text: 'New york style pizza',
+	price: '50',
+	itemid: 2
+};
+
+const product3 = {
+	imgSrc: 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg',
+	title: 'Candy',
+	text: '',
+	price: '5',
+	itemid: 3
+};
+
+const fakeArrayOfProducts = [product1, product2, product3];
 
 export const fetchProducts = () => {
 	return async (dispatch) => {

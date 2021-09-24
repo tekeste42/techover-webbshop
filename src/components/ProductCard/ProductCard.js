@@ -4,11 +4,18 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import useStyles from './styles';
 
-const ProductCard = ({ loading, title, isLast, disabled, onDecrement, onIncrement, text, price, imgSrc }) => {
+const ProductCard = ({ loading, title, isLast, onDecrement, onIncrement, text, price, imgSrc, quantity }) => {
 	const classes = useStyles();
+	const disabled = !quantity && quantity < 1;
 
 	return (
 		<div className={classes.productCard}>
+			{quantity && (
+				<div className={classes.quantityCounter}>
+					<div className={classes.rotated}></div>
+					<div className={`${classes.quantity} ${classes.detailMargin}`}>{quantity} st</div>
+				</div>
+			)}
 			<div className={classes.productCardFlex}>
 				<div className={classes.informationContainer}>
 					<div className={classes.info}>

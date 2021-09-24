@@ -17,6 +17,32 @@ const useStyles = makeStyles((theme) =>
 			width: '90%',
 			margin: 'auto'
 		},
+		quantityCounter: {
+			position: 'absolute',
+			left: 0,
+			top: 0,
+			overflow: 'hidden',
+			borderRadius: '8px'
+		},
+		rotated: {
+			width: '80px',
+			height: '80px',
+			top: '-40px',
+			left: '-40px',
+			backgroundColor: '#00c896',
+			transform: 'rotateZ(45deg)',
+			position: 'relative'
+		},
+		quantity: {
+			position: '-webkit-sticky',
+			position: 'absolute',
+			left: 0,
+			top: 0,
+			height: '40px',
+			padding: '5px',
+			overflow: 'hidden',
+			color: '#fff'
+		},
 		informationContainer: {
 			position: 'relative',
 			width: '80%',
