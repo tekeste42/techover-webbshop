@@ -18,12 +18,21 @@ export const fetchProductsSuccess = (data) => {
 
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
+const fakeProduct = {
+	imgSrc: 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg',
+	title: 'Pizza',
+	text: 'lorem iasdas as dasd asads',
+	price: '99'
+};
+
+const fakeArrayOfProducts = [fakeProduct, fakeProduct, fakeProduct, fakeProduct];
+
 export const fetchProducts = () => {
 	return async (dispatch) => {
 		dispatch(fetchProductsStart());
 		try {
 			await sleep(2000); // fake api call
-			const data = [1, 2, 3, 4];
+			const data = fakeArrayOfProducts;
 			dispatch(fetchProductsSuccess(data));
 		} catch (error) {
 			dispatch(fetchProductsFail(error));
