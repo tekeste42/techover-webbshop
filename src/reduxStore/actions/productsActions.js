@@ -21,7 +21,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const fakeProduct = {
 	imgSrc: 'https://cdn.pixabay.com/photo/2017/12/10/14/47/pizza-3010062_960_720.jpg',
 	title: 'Pizza',
-	text: 'lorem iasdas as dasd asads',
+	text: 'New york style pizza',
 	price: '99'
 };
 
