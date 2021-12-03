@@ -2,9 +2,7 @@ import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) =>
 	createStyles({
-		productsTitle: {
-			color: '#1b1b1b'
-		},
+		productsTitle: {},
 		productHeader: {
 			display: 'flex',
 			justifyContent: 'space-between',

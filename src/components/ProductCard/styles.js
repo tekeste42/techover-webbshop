@@ -7,7 +7,6 @@ const useStyles = makeStyles((theme) =>
 			width: '100%',
 			height: 130,
 			backgroundColor: '#fff',
-			color: '#1b1b1b',
 			boxShadow: '0px 2px 1px 0px rgba(0, 0, 0, 0.1)'
 		},
 		productCardFlex: {

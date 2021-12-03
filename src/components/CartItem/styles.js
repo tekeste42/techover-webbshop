@@ -10,14 +10,14 @@ const useStyles = makeStyles((theme) =>
 		},
 		subTitle: {
 			fontWeight: 300,
-			marginBottom: 5,
+			marginBottom: 40,
 			color: '#9db2bf',
 			fontSize: '14px'
 		},
 		title: {
 			color: '#4e6f7d',
 			fontWeight: 500,
-			marginBottom: 5,
+			marginBottom: 15,
 			fontSize: '18px'
 		},
 		chip: {
