@@ -6,6 +6,14 @@ const useStyles = makeStyles((theme) =>
 			display: 'flex',
 			justifyContent: 'space-between',
 			marginBottom: 30
+		},
+		boldText: {
+			fontWeight: 700,
+			fontSize: '1.2rem'
+		},
+		subTotal: {
+			fontWeight: 700,
+			fontSize: '0.8rem'
 		}
 	})
 );
