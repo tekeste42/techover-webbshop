@@ -3,18 +3,9 @@ import { Typography, Container, Grid, Button } from '@mui/material';
 import ProductCard from '../../ProductCard/ProductCard.js';
 import useStyles from './styles';
 import { connect } from 'react-redux';
-import { decrementProduct, incrementProduct } from '../../../reduxStore/actions/index';
 
-const Products = ({ products, error, loading, incrementProduct, decrementProduct, orders }) => {
+const Products = ({ products, error, loading, orders }) => {
 	const classes = useStyles();
-
-	const handleIncrement = (product) => {
-		incrementProduct(product);
-	};
-
-	const handleDecrement = (product) => {
-		decrementProduct(product);
-	};
 
 	const showSkeletonLoaders = () => [1, 2, 3, 4, 5].map((d) => <ProductCard key={d} loading={true} />);
 
@@ -26,15 +17,7 @@ const Products = ({ products, error, loading, incrementProduct, decrementProduct
 			const quantity = order ? order.quantity : null;
 
 			return (
-				<ProductCard
-					{...prod}
-					quantity={quantity}
-					loading={false}
-					key={i}
-					onIncrement={() => handleIncrement(prod)}
-					onDecrement={() => handleDecrement(prod)}
-					isLast={i === products.length - 1}
-				/>
+				<ProductCard {...prod} quantity={quantity} loading={false} key={i} isLast={i === products.length - 1} />
 			);
 		});
 	};
@@ -73,11 +56,4 @@ const mapStateToProps = (state) => {
 	};
 };
 
-const mapDIspatchToProps = (dispatch) => {
-	return {
-		incrementProduct: (data) => dispatch(incrementProduct(data)),
-		decrementProduct: (data) => dispatch(decrementProduct(data))
-	};
-};
-
-export default connect(mapStateToProps, mapDIspatchToProps)(Products);
+export default connect(mapStateToProps)(Products);
