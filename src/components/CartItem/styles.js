@@ -8,16 +8,10 @@ const useStyles = makeStyles((theme) =>
 			borderRadius: 5,
 			padding: '10px 20px'
 		},
-		subTitle: {
-			fontWeight: 300,
-			marginBottom: 40,
-			color: '#9db2bf',
-			fontSize: '14px'
-		},
 		title: {
 			color: '#4e6f7d',
 			fontWeight: 500,
-			marginBottom: 15,
+			marginBottom: 10,
 			fontSize: '18px'
 		},
 		chip: {
@@ -27,6 +21,10 @@ const useStyles = makeStyles((theme) =>
 			borderRadius: 50,
 			color: '#ffffff',
 			fontWeight: 300
+		},
+		img: {
+			width: 30,
+			marginBottom: 10
 		}
 	})
 );

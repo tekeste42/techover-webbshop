@@ -30,7 +30,7 @@ const reducer = (state = initialState, action) => {
 			};
 
 		case actionTypes.DECREMENT_PRODUCT:
-			const decArray = decrementProducts(state.orders, action.payload.itemid);
+			const decArray = decrementProducts(state.orders, action.payload.id);
 			return {
 				...state,
 				orders: decArray
@@ -41,11 +41,11 @@ const reducer = (state = initialState, action) => {
 	}
 };
 
-const findProductIndex = (incremArray, itemid) => {
+const findProductIndex = (incremArray, id) => {
 	if (incremArray.length === 0) {
 		return -1;
 	} else {
-		return incremArray.findIndex((item) => item.product.itemid === itemid);
+		return incremArray.findIndex((item) => item.product.id === id);
 	}
 };
 
@@ -55,7 +55,7 @@ const decrementIronedProduct = (product, quantity) => ({ product: product, quant
 
 const incrementIronedProducts = (initArray, action) => {
 	const incremArray = initArray.slice();
-	const productIndex = findProductIndex(incremArray, action.payload.itemid);
+	const productIndex = findProductIndex(incremArray, action.payload.id);
 
 	if (productIndex !== -1) {
 		incremArray[productIndex] = incrementProduct(
@@ -69,9 +69,9 @@ const incrementIronedProducts = (initArray, action) => {
 	return incremArray;
 };
 
-const decrementProducts = (initArray, itemid) => {
+const decrementProducts = (initArray, id) => {
 	const decArray = initArray.slice();
-	const decProdIndex = findProductIndex(decArray, itemid);
+	const decProdIndex = findProductIndex(decArray, id);
 
 	if (decProdIndex !== -1 && initArray[decProdIndex].quantity > 1) {
 		decArray[decProdIndex] = decrementIronedProduct(

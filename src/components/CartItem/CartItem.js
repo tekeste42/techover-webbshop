@@ -12,9 +12,7 @@ const CartItem = ({ product, quantity }) => {
 					<Typography variant="h3" className={classes.title}>
 						{product.title}
 					</Typography>
-					<Typography variant="subtitle1" className={classes.subTitle}>
-						{product.text}
-					</Typography>
+					<img className={classes.img} src={product.image} alt={product.title}></img>
 					<div className={classes.chip}>{parseInt(product.price) * quantity} kr</div>
 				</Grid>
 				<Grid item xs={2}>

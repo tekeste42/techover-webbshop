@@ -22,7 +22,7 @@ const Products = ({ products, error, loading, incrementProduct, decrementProduct
 		if (loading) return showSkeletonLoaders();
 
 		return products.map((prod, i) => {
-			const order = orders.find((orders) => orders.product.itemid === prod.itemid);
+			const order = orders.find((orders) => orders.product.id === prod.id);
 			const quantity = order ? order.quantity : null;
 
 			return (
