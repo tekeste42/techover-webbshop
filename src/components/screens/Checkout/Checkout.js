@@ -11,7 +11,7 @@ const Checkout = ({ cart }) => {
 	};
 
 	return (
-		<div id="Product__screen">
+		<div id="Checkout__screen" className={classes.screen}>
 			<Container maxWidth="sm">
 				<div className={classes.productHeader}>
 					<Typography variant="h1" className={classes.productsTitle}>

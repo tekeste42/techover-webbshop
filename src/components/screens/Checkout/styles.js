@@ -2,6 +2,9 @@ import { createStyles, makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) =>
 	createStyles({
+		screen: {
+			paddingBottom: 50
+		},
 		productHeader: {
 			display: 'flex',
 			justifyContent: 'space-between',

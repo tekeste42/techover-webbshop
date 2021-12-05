@@ -1,34 +1,26 @@
 import React, { Fragment } from 'react';
-import { Typography, IconButton, Divider, Skeleton } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
+import { Typography, Divider, Skeleton } from '@mui/material';
 import useStyles from './styles';
+import ControlButtons from '../ControlButtons/ControlButtons';
 
-const ProductCard = ({
-	loading,
-	title,
-	isLast,
-	onDecrement,
-	onIncrement,
-	price,
-	image,
-	id,
-	description,
-	category,
-	rating,
-	quantity
-}) => {
+const ProductCard = ({ loading, title, isLast, price, image, id, description, category, rating, quantity }) => {
 	const classes = useStyles();
-	const disabled = !quantity && quantity < 1;
+
+	const renderControlButtons = () => {
+		const product = {
+			category,
+			description,
+			id,
+			image,
+			price,
+			rating,
+			title
+		};
+		return <ControlButtons product={product} quantity={quantity} />;
+	};
 
 	return (
 		<div className={classes.productCard}>
-			{quantity && (
-				<div className={classes.quantityCounter}>
-					<div className={classes.rotated}></div>
-					<div className={`${classes.quantity} ${classes.detailMargin}`}>{quantity} st</div>
-				</div>
-			)}
 			<div className={classes.productCardFlex}>
 				<div className={classes.informationContainer}>
 					<div className={classes.info}>
@@ -56,15 +48,7 @@ const ProductCard = ({
 						</div>
 					</div>
 				</div>
-
-				<div className={classes.buttons}>
-					<IconButton aria-label="plus" onClick={onIncrement}>
-						<AddIcon fontSize="large" className={classes.button} />
-					</IconButton>
-					<IconButton aria-label="minus" onClick={onDecrement} disabled={disabled}>
-						<RemoveIcon fontSize="large" className={disabled ? classes.buttonDisabled : classes.button} />
-					</IconButton>
-				</div>
+				{renderControlButtons()}
 			</div>
 			{!isLast && (
 				<div className={classes.divider}>

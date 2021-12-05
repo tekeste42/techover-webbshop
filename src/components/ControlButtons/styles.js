@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) =>
 			padding: '7px 12px',
 			borderRadius: '50%',
 			color: '#4e6f7d'
+		},
+		placeholder: {
+			width: 33,
+			height: 33
 		}
 	})
 );

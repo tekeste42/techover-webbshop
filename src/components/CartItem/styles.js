@@ -12,6 +12,7 @@ const useStyles = makeStyles((theme) =>
 			color: '#4e6f7d',
 			fontWeight: 500,
 			marginBottom: 10,
+			height: 40,
 			fontSize: '18px'
 		},
 		chip: {
@@ -24,7 +25,8 @@ const useStyles = makeStyles((theme) =>
 		},
 		img: {
 			width: 30,
-			marginBottom: 10
+			marginBottom: 10,
+			objectFit: 'contain'
 		}
 	})
 );

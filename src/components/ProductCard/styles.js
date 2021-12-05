@@ -5,12 +5,13 @@ const useStyles = makeStyles((theme) =>
 		productCard: {
 			position: 'relative',
 			width: '100%',
-			height: 130,
+			height: 140,
 			backgroundColor: '#fff',
 			boxShadow: '0px 2px 1px 0px rgba(0, 0, 0, 0.1)'
 		},
 		productCardFlex: {
 			display: 'flex',
+			justifyContent: 'space-between',
 			position: 'relative',
 			height: '100%',
 			width: '90%',
