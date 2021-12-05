@@ -36,7 +36,7 @@ const useStyles = makeStyles((theme) =>
 			transform: 'translateY(-50%)'
 		},
 		img: {
-			width: '110px',
+			width: '65px',
 			marginRight: '20px',
 			objectFit: 'contain'
 		},

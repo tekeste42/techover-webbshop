@@ -4,7 +4,20 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import useStyles from './styles';
 
-const ProductCard = ({ loading, title, isLast, disabled, onDecrement, onIncrement, text, price, imgSrc }) => {
+const ProductCard = ({
+	loading,
+	title,
+	isLast,
+	disabled,
+	onDecrement,
+	onIncrement,
+	price,
+	image,
+	id,
+	description,
+	category,
+	rating
+}) => {
 	const classes = useStyles();
 
 	return (
@@ -13,9 +26,9 @@ const ProductCard = ({ loading, title, isLast, disabled, onDecrement, onIncremen
 				<div className={classes.informationContainer}>
 					<div className={classes.info}>
 						{loading ? (
-							<Skeleton variant="rect" width={110} height={70} style={{ marginRight: 20 }} />
+							<Skeleton variant="rect" width={65} height={92} style={{ marginRight: 20 }} />
 						) : (
-							<img className={classes.img} src={imgSrc} alt={title}></img>
+							<img className={classes.img} src={image} alt={title}></img>
 						)}
 						<div className={classes.details}>
 							<Typography variant="subtitle2">
@@ -30,7 +43,6 @@ const ProductCard = ({ loading, title, isLast, disabled, onDecrement, onIncremen
 								<Skeleton variant="text" width={80} height={20} />
 							) : (
 								<Fragment>
-									<p className={classes.detailMargin}>{text}</p>
 									<p className={classes.detailMargin}>{price} Kr</p>
 								</Fragment>
 							)}
