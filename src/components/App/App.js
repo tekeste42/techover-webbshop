@@ -1,5 +1,4 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import ScreensRoot from '../screens/Root';
 
 class App extends React.Component {
@@ -12,8 +11,4 @@ class App extends React.Component {
 	}
 }
 
-const mapStateToProps = (state) => {
-	return {};
-};
-
-export default connect(mapStateToProps)(App);
+export default App;
