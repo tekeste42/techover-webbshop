@@ -34,7 +34,7 @@ const Products = ({ products, error, loading }) => {
 					</div>
 					<Grid container spacing={2} justify="center">
 						<Grid item xs={12}>
-							<List>{renderProductCards()}</List>
+							<List sx={{ bgcolor: 'background.paper' }}>{renderProductCards()}</List>
 						</Grid>
 					</Grid>
 					<div
