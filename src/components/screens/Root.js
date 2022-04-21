@@ -6,7 +6,7 @@ import Navbar from '../Navbar/Navbar';
 const Content = () => {
 	const location = useLocation();
 	return (
-		<section className="route-page">
+		<section className="route-page" style={{ paddingTop: 50 }}>
 			<Switch location={location}>
 				{ROUTES.map((route) => (
 					<Route
