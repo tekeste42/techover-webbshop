@@ -1,10 +1,15 @@
-import { Typography, Container, Grid, Divider, Box } from '@mui/material';
+import { Typography, Container, Grid, Divider, Box, Collapse } from '@mui/material';
 import { connect } from 'react-redux';
 import CartItem from '../../CartItem/CartItem';
+import { TransitionGroup } from 'react-transition-group';
 
 const Checkout = ({ cart }) => {
 	const renderCartItems = () => {
-		return cart.orders.map((item, i) => <CartItem {...item} key={i} />);
+		return cart.orders.map((item, i) => (
+			<Collapse key={i}>
+				<CartItem {...item} key={i} />
+			</Collapse>
+		));
 	};
 
 	const bigText = { fontWeight: 700, fontSize: '1.2rem' };
@@ -20,7 +25,7 @@ const Checkout = ({ cart }) => {
 				</Box>
 				<Grid container spacing={2} justify="center">
 					<Grid item xs={12}>
-						{renderCartItems()}
+						<TransitionGroup>{renderCartItems()}</TransitionGroup>
 					</Grid>
 				</Grid>
 
