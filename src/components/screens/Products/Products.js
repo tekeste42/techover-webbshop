@@ -3,23 +3,16 @@ import { Typography, Container, Grid, Button, List } from '@mui/material';
 import ProductCard from '../../ProductCard/ProductCard.js';
 import { connect } from 'react-redux';
 
-const Products = ({ products, error, loading }) => {
-	const handleIncrement = (params) => {};
-	const handleDecrement = (params) => {};
+const Products = ({ products, error, loading, orders }) => {
+	const showSkeletonLoaders = () => [1, 2, 3, 4, 5].map((d) => <ProductCard key={d} loading={true} />);
 
 	const renderProductCards = () => {
-		if (loading) return [1, 2, 3, 4, 5].map((d) => <ProductCard key={d} loading={true} />);
+		if (loading) return showSkeletonLoaders();
 
 		return products.map((prod, i) => {
-			return (
-				<ProductCard
-					{...prod}
-					loading={false}
-					key={i}
-					onIncrement={() => handleIncrement(prod)}
-					onDecrement={() => handleDecrement(prod)}
-				/>
-			);
+			const order = orders.find((orders) => orders.product.id === prod.id);
+			const quantity = order ? order.quantity : null;
+			return <ProductCard {...prod} quantity={quantity} loading={false} key={i} />;
 		});
 	};
 
@@ -50,10 +43,12 @@ const Products = ({ products, error, loading }) => {
 
 const mapStateToProps = (state) => {
 	const { items, loading, error } = state.products;
+	const { orders } = state.cart;
 	return {
 		products: items,
 		error,
-		loading
+		loading,
+		orders
 	};
 };
 

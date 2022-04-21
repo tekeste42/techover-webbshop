@@ -1,25 +1,18 @@
 import React from 'react';
-import { IconButton, Skeleton } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
+import { Skeleton, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import ControlButtons from '../ControlButtons/ControlButtons';
 
-const ProductCard = ({
-	loading,
-	title,
-	disabled,
-	onDecrement,
-	onIncrement,
-	price,
-	image,
-	id,
-	description,
-	category,
-	rating
-}) => {
+const ProductCard = ({ loading, title, price, image, id, description, category, rating, quantity }) => {
+	const product = {
+		category,
+		description,
+		id,
+		image,
+		price,
+		rating,
+		title
+	};
+
 	return (
 		<ListItem>
 			<ListItemAvatar>
@@ -38,12 +31,7 @@ const ProductCard = ({
 				primary={loading ? <Skeleton variant="text" width={50} height={20} /> : title}
 				secondary={loading ? <Skeleton variant="text" width={80} height={20} /> : `${price} Kr`}
 			/>
-			<IconButton aria-label="plus" onClick={onIncrement}>
-				<AddIcon fontSize="large" sx={{ color: '#00c896' }} />
-			</IconButton>
-			<IconButton aria-label="minus" onClick={onDecrement} disabled={disabled}>
-				<RemoveIcon fontSize="large" sx={{ color: disabled ? '#f7f8fa' : '#00c896' }} />
-			</IconButton>
+			<ControlButtons product={product} quantity={quantity} />
 		</ListItem>
 	);
 };
