@@ -39,10 +39,10 @@ const ProductCard = ({
 				secondary={loading ? <Skeleton variant="text" width={80} height={20} /> : `${price} Kr`}
 			/>
 			<IconButton aria-label="plus" onClick={onIncrement}>
-				<AddIcon fontSize="large" color="primary" />
+				<AddIcon fontSize="large" sx={{ color: '#00c896' }} />
 			</IconButton>
 			<IconButton aria-label="minus" onClick={onDecrement} disabled={disabled}>
-				<RemoveIcon fontSize="large" color={disabled ? '#f7f8fa' : 'primary'} />
+				<RemoveIcon fontSize="large" sx={{ color: disabled ? '#f7f8fa' : '#00c896' }} />
 			</IconButton>
 		</ListItem>
 	);
