@@ -25,7 +25,7 @@ const Products = ({ products, error, loading }) => {
 
 	return (
 		<div id="Product__screen">
-			<Container maxWidth="md">
+			<Container maxWidth="md" sx={{ bgcolor: 'background.primary' }}>
 				<div className="Products__view">
 					<div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 30 }}>
 						<Typography variant="h1" sx={{ color: 'text.primary' }}>

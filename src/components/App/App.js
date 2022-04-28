@@ -1,14 +1,15 @@
 import React from 'react';
 import ScreensRoot from '../screens/Root';
+import { Box } from '@mui/material';
 
-class App extends React.Component {
-	render() {
-		return (
-			<div className="App">
+function App() {
+	return (
+		<div className="App">
+			<Box sx={{ bgcolor: 'background.default' }}>
 				<ScreensRoot />
-			</div>
-		);
-	}
+			</Box>
+		</div>
+	);
 }
 
 export default App;

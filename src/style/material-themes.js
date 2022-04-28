@@ -8,14 +8,58 @@ const h2 = { fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '20px'
 const h3 = { fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '17px', lineHeight: '20px' };
 const h4 = { fontFamily: 'Roboto, sans-serif', fontWeight: 400, fontSize: '14px', lineHeight: '20px' };
 
+export const getDesignTokens = (mode) => ({
+	palette: {
+		mode,
+		primary,
+		...(mode === 'light'
+			? {
+					// palette values for light mode
+					background: {
+						paper: '#f8fafd',
+						default: '#fff'
+					},
+					text: {
+						primary: '#1b1b1b',
+						secondary: '#b3b3b3'
+					}
+			  }
+			: {
+					// palette values for dark mode
+					background: {
+						paper: '#1b1b1b',
+						default: '#121212'
+					},
+					text: {
+						primary: '#f8fafd',
+						secondary: '#fff'
+					}
+			  })
+	},
+	typography: {
+		fontFamily: [
+			'Roboto',
+			'Arial',
+			'sans-serif',
+			'"Apple Color Emoji"',
+			'"Segoe UI Emoji"',
+			'"Segoe UI Symbol"'
+		].join(','),
+		h1,
+		h2,
+		h3,
+		h4
+	}
+});
+
 const mainTheme = createTheme({
 	palette: {
+		mode: 'dark',
 		primary,
 		background: {
 			paper: '#f8fafd',
 			default: '#fff'
 		},
-
 		text: {
 			primary: '#1b1b1b',
 			secondary: '#b3b3b3'
