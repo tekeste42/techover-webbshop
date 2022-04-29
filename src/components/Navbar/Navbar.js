@@ -22,6 +22,9 @@ const Navbar = (props) => {
 					<Button onClick={() => history.push('/')} color="inherit">
 						Products
 					</Button>
+					<Button onClick={() => history.push('/about')} color="inherit">
+						About
+					</Button>
 				</Toolbar>
 			</AppBar>
 		</Box>
