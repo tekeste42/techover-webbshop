@@ -12,12 +12,12 @@ const mainTheme = createTheme({
 	palette: {
 		primary,
 		background: {
-			paper: '#121212',
+			paper: '#ffffff',
 			default: '#ffffff'
 		},
 
 		text: {
-			primary: '#ffffff',
+			primary: '#1b1b1b',
 			secondary: '#b3b3b3'
 		}
 	},
