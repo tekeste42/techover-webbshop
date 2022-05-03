@@ -22,7 +22,7 @@ export const fetchProducts = () => {
 	return async (dispatch) => {
 		dispatch(fetchProductsStart());
 		try {
-			await sleep(5000); // fake api call
+			await sleep(2000); // fake api call
 			const response = await fetch('https://fakestoreapi.com/products');
 			const data = await response.json();
 			dispatch(fetchProductsSuccess(data));

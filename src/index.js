@@ -8,6 +8,7 @@ import mainTheme from './style/material-themes';
 import './index.css';
 
 const store = configureStore();
+console.log(store);
 
 ReactDOM.render(
 	<Provider store={store}>

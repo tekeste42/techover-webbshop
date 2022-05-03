@@ -8,8 +8,9 @@ const Content = () => {
 	return (
 		<section className="route-page" style={{ paddingTop: '50px' }}>
 			<Switch location={location}>
-				{ROUTES.map((route) => (
+				{ROUTES.map((route, i) => (
 					<Route
+						key={i}
 						path={route.path}
 						exact={route.exact}
 						render={(props) => <route.component {...props} routes={route.routes} />}

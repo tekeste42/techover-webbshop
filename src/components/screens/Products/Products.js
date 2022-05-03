@@ -6,7 +6,6 @@ import ProductCard from '../../ProductCard/ProductCard';
 const Products = ({ products, loading, error }) => {
 	const renderProductsCard = () => {
 		if (loading) return [1, 2, 3, 4, 5].map((e) => <ProductCard key={e} loading={true} />);
-		console.log(products);
 		return products.map((product, i) => <ProductCard key={i} {...product} loading={false} />);
 	};
 
