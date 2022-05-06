@@ -1,10 +1,8 @@
-import { IconButton, Skeleton, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
-import AddIcon from '@mui/icons-material/Add';
-import RemoveIcon from '@mui/icons-material/Remove';
-import { connect } from 'react-redux';
-import { incrementProduct, decrementProduct } from '../../reduxStore/actions/cartActions';
+import { Skeleton, ListItem, ListItemText, ListItemAvatar, Avatar } from '@mui/material';
+import ControlButtons from '../ControlButtons/ControlButtons';
 
-const ProductCard = ({ title, image, price, disabled, loading, id, onIncrement, onDecrement }) => {
+const ProductCard = ({ title, image, price, loading, id, quantity }) => {
+	const product = { title, image, price, id };
 	return (
 		<ListItem>
 			<ListItemAvatar>
@@ -23,21 +21,9 @@ const ProductCard = ({ title, image, price, disabled, loading, id, onIncrement, 
 				primary={loading ? <Skeleton variant="text" width={100} height={20} /> : title}
 				secondary={loading ? <Skeleton variant="text" width={40} height={20} /> : `${price} kr`}
 			/>
-			<IconButton onClick={() => onIncrement({ title, price, image, id })}>
-				<AddIcon fontSize="large" sx={{ color: '#00c896' }} />
-			</IconButton>
-			<IconButton onClick={() => onDecrement({ title, price, image, id })} disable={disabled}>
-				<RemoveIcon fontSize="large" sx={{ color: '#00c896' }} />
-			</IconButton>
+			<ControlButtons product={product} quantity={quantity} />
 		</ListItem>
 	);
 };
 
-const mapDispatchToProps = (dispatch) => {
-	return {
-		onIncrement: (payload) => dispatch(incrementProduct(payload)),
-		onDecrement: (payload) => dispatch(decrementProduct(payload))
-	};
-};
-
-export default connect(null, mapDispatchToProps)(ProductCard);
+export default ProductCard;

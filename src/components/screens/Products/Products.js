@@ -3,10 +3,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ProductCard from '../../ProductCard/ProductCard';
 
-const Products = ({ products, loading, error }) => {
+const Products = ({ products, loading, error, orders }) => {
 	const renderProductsCard = () => {
 		if (loading) return [1, 2, 3, 4, 5].map((e) => <ProductCard key={e} loading={true} />);
-		return products.map((product, i) => <ProductCard key={i} {...product} loading={false} />);
+		return products.map((product, i) => {
+			const order = orders.find((order) => order.product.id === product.id);
+			const quantity = order ? order.quantity : 0;
+			return <ProductCard key={i} {...product} loading={false} quantity={quantity} />;
+		});
 	};
 
 	return (
@@ -39,7 +43,8 @@ const Products = ({ products, loading, error }) => {
 
 const mapStateToProps = (state) => {
 	const { items, loading, error } = state.products;
-	return { products: items, loading, error };
+	const { orders } = state.cart;
+	return { products: items, loading, error, orders };
 };
 
 export default connect(mapStateToProps)(Products);
