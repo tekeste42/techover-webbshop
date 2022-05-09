@@ -24,13 +24,6 @@ const Checkout = ({ orders, totalPrice, deliveryFee, productPrice }) => {
 						Checkout
 					</Typography>
 				</Box>
-				<iframe
-					src={`https://klarna-checkout-boilerplate.herokuapp.com/cart-checkout/${1}`}
-					title="W3Schools Free Online Web Tutorials"
-					width={'100%'}
-					height={'1000px'}
-					style={{ border: 'none' }}
-				></iframe>
 				<Grid container spacing={2} justify="center">
 					<Grid item xs={12}>
 						<TransitionGroup>{renderCartItems()}</TransitionGroup>
